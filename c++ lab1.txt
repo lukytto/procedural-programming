@@ -1,0 +1,322 @@
+﻿7 -  Duotos atkarpos galų koordinatės. Apskaičiuokite atkarpos ilgį.
+Input
+Keturi sveiki skaičiai x1, y1, x2, y2 (−106 ≤ x1, y1, x2, y2 ≤ 106).
+Output
+išvedamas realaus tipo skaičius, dviejų skaitmenų po kablelio tikslumu.
+
+# include <iostream>
+# include <cmath>
+#include <iomanip>
+using namespace std;
+
+
+int main()
+{double x1, y1, x2, y2;
+double distance;
+cin>>x1>>y1>>x2>>y2;
+double dx = (x2 - x1) * (x2 - x1);
+double dy = (y2 - y1) * (y2 - y1);
+distance = sqrt(dx + dy);
+cout<<fixed<<setprecision(2)<<distance;
+
+
+    return 0;
+}
+
+8 - Duotos trikampio viršūnių koordinatės. Apskaičiuokite trikampio plotą.
+
+Input
+šeši sveiki skaičiai x1, y1, x2, y2, x3, y3 (−106 ≤ x1, y1, x2, y2, x3, y3 ≤ 106).
+Output
+išvedamas realaus tipo skaičius, vieno skaitmens po kablelio tikslumu.
+
+# include <iostream>
+# include <cmath>
+#include <iomanip>
+using namespace std;
+
+
+	int main()
+	{
+		double x1, y1, x2, y2, x3, y3;
+		double area;
+		cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
+		area = 0.5 * (x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2));
+		cout << fixed << setprecision(1) << abs(area);
+    return 0;
+}
+
+9 - Duotos stačiakampio kraštinės. Raskite į stačiakampį įbrėžto apskritimo plotą.
+
+Input
+du sveiki skaičiai a ir b (0 < a, b ≤ 106).
+Output
+išvesti apskritimo plotą, suapvalinus iki dviejų skaičių po kablelio.
+
+# include <iostream>
+# include <cmath>
+#include <iomanip>
+#define _USE_MATH_DEFINES
+using namespace std;
+//a plotis b ilgis
+
+int main()
+{
+	double a, b;
+	double area;
+	const double PI = 3.14159265358979323846;
+	cin >> a >> b;
+	if (a < b) {
+		area = pow(a / 2, 2) * PI;
+		cout << fixed << setprecision(2) << area;
+	}
+	else {
+		area = pow(b / 2, 2) * PI;
+		cout << fixed << setprecision(2) << area;
+	}
+	return 0;
+}
+
+10 - Sukurkite programa, kuri apskaiciuoja pasirinktos figuros turi, kai zinomas aukstis h ir spindulys r. Galimas figuros pasirinkimas: 1 - ritinys, 2 - kugis. Pi = 3.14159
+Input
+ivedami trys sveikojo tipo skaiciai: p, h ir r, kai p (1 arba 2) - pasirenkama figura, h - figuros aukstis, r- spindulys
+Output
+Isvedamas vienas realiojo tipo skaicius - pasirinktos figuros turis. Atsakymas apvalinamas iki dvieju skc po kablelio.
+
+# include <iostream>
+# include <cmath>
+#include <iomanip>
+#define _USE_MATH_DEFINES
+using namespace std;
+double p, h, r;
+double v;
+double PI = 3.14159265359;
+int main()
+{
+
+	
+	cin >> p >> h >> r;
+	if (p == 1) {
+		v = PI * pow(r, 2) *h;
+
+	}
+
+
+	else if (p == 2) {
+		v = (1.0 / 3.0) * PI * (r * r) * h;
+		
+	}
+	
+	cout << fixed << setprecision(2) << v;
+
+	return 0;
+}
+
+11 - Duoti kvadratinės lygties koeficientai a,b,c. Raskite lygties sprendinius.
+
+Input
+Trys sveiki skaičiai a, b ir c (−106 ≤ a, b, c ≤ 106).
+Output
+jei yra du sprendiniai, pirmiau rašome mažesnį. Sprendiniai atskiriami simboliu "_". Jei lygtis sprendinių neturi, išvedame "NO".
+
+# include <iostream>
+# include <cmath>
+#include <iomanip>
+	using namespace std;
+	double a, b, c, d, x1, x2;
+	int main()
+	{
+		cin >> a >> b >> c;
+		d = ((b * b) - 4 * a * c);
+		if (d > 0) {
+			x1 = (-b + sqrt(b * b - 4 * a * c)) / (2 * a);
+			x2 = (-b - sqrt(b * b - 4 * a * c)) / (2 * a);
+
+			if (x1 < x2) {
+				cout << x1 << "_" << x2;
+			}
+			else if (x2 < x1) {
+				cout << x2 << "_" << x1;
+			}
+			
+			
+		}
+		else if (d == 0) {
+			x1 = -b / (2 * a);
+			cout << x1;
+		}
+		else {
+			d = -1 * d;
+			cout << "NO";
+		}
+    return 0;
+}
+
+12 - Petriuko lentele, Petriukas ant lapo uzrase du skc 69 ir 26. Tuomet pirmaji skc dalino is 2 (nekreipdamas demesio 5 liekana) tol kol gavo vienta. Antraji skc daugino is 2 tiek kartu, kiek pirma dalino ir 2. Tokiu budu jis gavo lentele.
+Tuomet nusprende isbraukti visas eilutes, kuriu kairysis skc yra lyginis. Galiausiai sudejes visus likusius desiniojo stulpelio skaicius gavo 26+104+1664=1794
+Padekite Petriukui issiaiskinti koki rezultata jis gautu su bet kokiais kitais dviem skc.
+Input
+Du sveiki skc
+Output
+isvedamas vienas skc
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	long long a, n, sum = 0;
+	cin >> a;
+	cin >> n;
+	
+	while (a >= 1)
+	{
+		if (a % 2 != 0) { sum = sum + n; }
+		a = a / 2;
+		n = n * 2;
+	}
+
+	cout << sum;
+    return 0;
+}
+
+13 - Apskaičiuokite sveikųjų skaičių sumą nuo a iki n (imtinai).
+
+Input
+Du sveiki skaičiai a ir n (−106 ≤ a, n ≤ 106).
+Output
+išveskite sumą.
+
+# include <iostream>
+# include <cmath>
+#include <iomanip>
+using namespace std;
+int main()
+{
+	long long a, n, total;
+
+	cin >> a;
+	cin >> n;
+
+	total = 0;
+	for (long long x = a; x <= n; x++)
+	{
+		total += x;
+	}
+
+	cout << total << endl;
+	return 0;
+}
+
+14 - Apskaičiuokite lyginių skaičių esančių nuo 1 iki n (imtinai) vidurkį.
+
+Input
+vienas sveikas skaičius n (1 ≤ n ≤ 106).
+Output
+išveskite vidurkį.
+
+
+# include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	long long n, evencount = 0, evensum = 0, vid;
+	cin >> n;
+	for (int i = 1; i <= n; i++) {
+
+
+		if (i % 2 == 0){
+		evencount++;
+		evensum += i;
+		}
+					
+	}
+	if (n > 1)vid = evensum / evencount;
+	else vid = 0;
+	
+	cout << vid;
+
+	return 0;
+}
+
+15 - Patikrinkite ar skaičius n yra pirminis.
+
+Input
+Vienas sveikas skaičius n (0 ≤ n ≤ 106).
+Output
+išvesti "TAIP" arba "NE".
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>  
+using namespace std;
+
+int main()
+{
+	int n, count = 0;
+	cin >> n;
+
+	for (int a = 1; a <= n; a++)
+	{
+		if (n%a == 0)
+		{
+			count++;
+		}
+	}
+	if (count == 2)
+
+		cout << "TAIP";
+
+	else
+		cout <<"NE";
+
+	return(0);
+}
+
+
+13 - Zvejo verslas
+Petriukas įsidarbino žuvies ūkyje, kuriame alga priklauso nuo sugautų žuvų kiekio. Už pirmą žuvį mokama n centų, o už kiekvieną sekančią žuvį n kartų daugiau, nei už ankstesnę. Padėkite Petriukui suskaičiuoti, kiek jis uždirbtų pinigų, jei pagautų m žuvų. Užtikriname, kad Petriuko uždirbtų pinigų suma neviršija 1016.
+
+Input
+Du sveiki skaičiai n ir m (0 ≤ n, m ≤ 100).
+Output
+išvesti uždirbtų pinigų sumą.
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>  
+using namespace std;
+
+
+	//n kelinta zuvis
+	// m - zuvu kiekis
+
+
+	int main() {
+
+
+		int n, m;
+		long long int x, ats = 0;
+		cin >> n >> m;
+		x = n;
+
+		if (m != 0) {
+			ats = ats + x;
+		}
+
+		for (int i = 1; i < m; i++) {
+			x = x * n;
+			ats = ats + x;
+		}
+
+		cout << ats;
+
+		return 0;
+
+	}
+
+
+

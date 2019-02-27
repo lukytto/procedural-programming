@@ -1,0 +1,567 @@
+﻿3.1 - Duoti du sveiki skaičiai. Surasti jų sumą. Privaloma realizuoti funkciją int Suma(int a, int b).
+
+Input
+Natūralūs skaičiai iš intervalo [1;106].
+Output
+Išveskite atsakymą.
+
+#include <iostream>
+using namespace std;
+int Suma(int a, int b);
+int main()
+{
+	int a, b;
+	cin >> a>> b;
+	cout << Suma(a, b);
+    return 0;
+}
+
+int Suma(int a, int b) {
+	return (a + b);
+}
+
+3.2 - Duoti 4 sveiki skaičiai. Surasti jų sumą. Privaloma panaudoti 1 užd. realizuotą funkciją int Suma(int a, int b).
+
+Input
+Natūralūs skaičiai iš intervalo [1;106].
+Output
+Išveskite atsakymą.
+
+#include <iostream>
+using namespace std;
+int Suma(int a, int b);
+int main()
+{
+	int a, b, c, d;
+	cin >> a>> b>> c>>d;
+	a = a + c;
+	b = b + d;
+	cout << Suma(a, b);
+    return 0;
+}
+
+int Suma(int a, int b) {
+	return (a + b);
+}
+
+
+3.3 - Duotas sveikas skaičius. Surasti jo reikšmę dvejetainėje sistemoje. Privaloma realizuoti funkciją DecToBin(int a)
+
+Input
+Skaičius iš intervalo [0;109].
+Output
+Išveskite atsakymą.
+
+#include <iostream>
+#include <string>
+using namespace std;
+string DecToBin(int a);
+int main()
+{
+	int num;
+	cin >>num ;
+	cout<<DecToBin(num);
+    return 0;
+}
+
+string DecToBin(int a) {
+	if (a == 0)
+		return to_string(0);
+	string r;
+	while (a != 0) {
+		r = (a % 2 == 0 ? "0" : "1") + r; a /= 2; }
+	return r;
+}
+
+
+3.4 - Duoti du sveiki skaičiai. Apkeisti jų reikšmes vietomis. Privaloma realizuoti funkciją Keisti(int &a, int &b).
+
+Input
+Natūralūs skaičiai iš intervalo [1;106].
+Output
+Išveskite atsakymą.
+
+#include <iostream>
+using namespace std;
+void Keisti(int &a, int &b);
+
+int main()
+{
+	int num1, num2;
+	cin >> num1>>num2;
+    Keisti(num1, num2);
+	cout << num1 << endl;
+	cout<< num2<<endl;
+	return 0;
+}
+
+void Keisti(int &a, int &b) {
+	int temp;
+	temp = a;
+	a = b;
+	b = temp;
+	return;
+	
+}
+
+
+3.5 - Duotos stačiakampio viršūnių koordinatės. Apskaičiuoti stačiakampio plotą bei perimetrą. Realizuoti funkciją, kurios įėjimo parametrai – stačiakampio viršūnių koordinatės, išėjimo parametrai – stačiakampio plotas ir perimetras.
+
+Input
+Realūs skaičiai x1,y1,x2,y2,x3,y3,x4,y4 iš intervalo [ − 106;106].
+Output
+Išveskite atsakymą paliekant 5 skaitmenis po kablelio.
+
+#include <iomanip>
+#include <cmath>
+#include <iostream>
+using namespace std;
+int main()
+{
+	double xkord[4], ykord[4];
+	
+	for (int i = 0; i < 4; i++)
+	{
+		cin >> xkord[i] >> ykord[i];
+	}
+	double side[3];
+	side[0] = sqrt(pow((xkord[0] - xkord[1]), 2) + pow((ykord[0] - ykord[1]), 2));
+	side[1] = sqrt(pow((xkord[0] - xkord[2]), 2) + pow((ykord[0] - ykord[2]), 2));
+	side[2] = sqrt(pow((xkord[0] - xkord[3]), 2) + pow((ykord[0] - ykord[3]), 2));
+	double A, P;
+	if (side[0] >= side[1] && side[0] >= side[2]) {
+		A = side[1] * side[2];
+		P = side[1] * 2 + side[2] * 2;
+	}
+	else if (side[1] >= side[0] && side[1] >= side[2]) {
+		A = side[0] * side[2];
+		P = side[0] * 2 + side[2] * 2;
+	}
+	else if (side[2] >= side[0] && side[2] >= side[1]) {
+		A = side[0] * side[1];
+		P = side[0] * 2 + side[1] * 2;
+	}
+	cout << fixed << setprecision(5) << A << endl;
+	cout << fixed << setprecision(5) << P << endl;
+	return 0;
+}
+
+
+3.6 - Duotas sveikas skaičius. Nustatyti, ar skaičius pirminis. Privaloma realizuoti funkciją bool IsPrime(long long a).
+
+Input
+Sveikas skaičius iš intervalo [0;1010].
+Output
+Jei pirminis išveskite 1, priešingu atveju - 0.
+
+#include <iostream>
+
+using namespace std;
+bool IsPrime(long long a);
+
+int main()
+{
+	long long prime;
+	
+	cin >> prime;
+	cout << IsPrime(prime);
+    return 0;
+}
+
+bool IsPrime(long long a) {
+	if (a==1 || a==0) {
+		return false;
+	}
+	for (int i = 2; i <= sqrt(a); i++){
+		if (a % i == 0)
+			return false;
+	}
+	return true;
+}
+
+
+3.7 - Duota sveikų skaičių seka. Surikiuoti elementus mažėjimo tvarka. Privaloma realizuoti 3 funkcijas: NuskaitytiSeka(...) SurikiuotiElementus(...) Spausdinti rezultatus(..) Globalių kintamųjų kurti negalima.
+
+Input
+Sekos ilgis iki 10000 elementų, elementai natūralūs skaičiai iš intervalo [0;106].
+Output
+Išveskite atsakymą.
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+void NuskaitytiSeka(int a[10001], int n);
+void SurikiuotiElementus(int a[10001], int n);
+void Spausdintirezultatus(int a[10001], int n);
+int main()
+{
+	int a[10001], n;
+	n = 0;
+	NuskaitytiSeka(a, n);
+	return 0;
+}
+void NuskaitytiSeka(int a[10001], int n) {
+	cin >> n;
+	for (int i = 1; i <= n; i++) {
+		cin >> a[i];
+	}
+	SurikiuotiElementus(a, n);
+}
+void SurikiuotiElementus(int a[10001], int n) {
+	int t;
+	for (int i = 1; i <= n; i++) {
+
+		for (int j = 1; j < n; j++) {
+			if (a[j + 1] > a[j]) {
+				t = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = t;
+			}
+		}
+	}
+	Spausdintirezultatus(a, n);
+}
+void Spausdintirezultatus(int a[10001], int n) {
+	for (int i = 1; i <= n; i++) {
+		cout << a[i] << endl;
+	}
+}
+
+
+3.8 - Duotos dvi sveikų skaičių sekos. Reikia apjungti šių sekų elementus ir surikiuoti didėjimo tvarką. Privaloma naudoti dinaminius masyvus (naudoti rodyklę ir komandą new).
+
+Input
+Natūralūs skaičiai iš intervalo [1;106].
+Output
+Išveskite atsakymą.
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int size;
+	cin>>size;
+	int* array = new int[size];
+	for (int i = 0; i < size;i++) {
+		cin>>array[i];
+	}
+	
+	int size2;
+	cin>>size2;
+	int* array2 = new int[size2];
+	for (int j = 0; j < size2;j++) {
+		cin >> array2[j];
+	}
+	
+	
+	int* result = new int[size2+size];
+	
+	memcpy(result, array, size *sizeof(int));
+	memcpy(&result[size], array2, size2 * sizeof(int));
+	for (int k = 0; k < size2+size;k++) {
+		int smallestIndex=k;
+		for (int p = k + 1; p < size2 + size; p++) {
+		if (result[p]<result[smallestIndex])
+		smallestIndex=p;
+		}
+		std::swap(result[k], result[smallestIndex]);
+		cout << result[k]<<" ";
+	}
+
+
+    return 0;
+}
+
+
+3.9 - 4 Užd. funkciją Keisti(int &a, int &b) perrašyti panaudojus rodykles, t.y. Keisti(int *a, int *b).
+
+Input
+Natūralūs skaičiai iš intervalo [1;106].
+Output
+Išveskite atsakymą.
+
+#include <iostream>
+using namespace std;
+void Keisti(int *a, int *b);
+
+int main()
+{
+	int num1, num2;
+	cin >> num1 >> num2;
+	Keisti(&num1, &num2);
+	cout << num1 << endl;
+	cout << num2 << endl;
+	
+	return 0;
+}
+
+void Keisti(int *a, int *b) {
+	
+	int temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
+	return;
+
+}
+
+
+3.11 - Fibonači sekoje pirmi du elementai yra 0 ir 1. Kiekvienas sekantis narys yra lygus dviejų prieš jį einančių narių sumai: F(0) = 0, F(1) = 1, F(n) = F(n − 1) + F(n − 2). Apskaičiuokite n-ąjį sekos narį panaudodami rekursinę funkciją.
+
+Input
+Skaičius iš intervalo [0;30].
+Output
+Išveskite atsakymą.
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int fibo(int n);
+
+int main() {
+	int n;
+	ifstream listfile("11.in");
+	if (listfile.fail()) { cout << "error"; }
+	listfile >> n;
+	listfile.close();
+	ofstream rez("11.out");
+	rez << fibo(n);
+	rez.close();
+	return 0;
+}
+
+int fibo(int n)
+{
+	if (n <= 0 || n>30) { return 0; }
+	else if (n == 1 || n == 2) return 1;
+	else
+		return fibo(n - 1) + fibo(n - 2);
+}
+
+
+3.12 - Duotą skaičių pasukite prieš laikrodžio rodyklę. Būtina panaudoti rekursinę funkciją.
+Sveikas skaičius n (0 ≤ n ≤ 109).
+Output
+išveskite atsakymą.
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+ofstream rezfile("o.txt");
+int base = 1;
+void rev(int number, int numberAmount) {
+	int newnumber;
+	newnumber = (number / base) % 10;
+	rezfile << newnumber << endl;
+	numberAmount--;
+	base = base * 10;
+	if (numberAmount >= 0) {
+		rev(number, numberAmount);
+	}
+	
+}
+int main()
+{
+	int number;
+	int numberAmount;
+	ifstream listfile("input.txt");
+	if (listfile.fail()) { cout << "error"; }
+	listfile >> number;
+	numberAmount = floor(log10(number));
+	rev(number, numberAmount);
+	listfile.close();
+
+	
+	if (rezfile.fail()) { cout << "errorrez"; }
+	rezfile.close();
+	return 0;
+}
+
+
+3.13 - Dvigubas faktorialas apibrėžiamas taip: f!! = 1 · 3 ·5 · ... · n, kai n nelyginis skaičius ir 2 · 4 · 6 ·... · n, kai n lyginis skaičius Parašykite rekursinę funkciją skaičiaus n dvigubam faktorialui rasti.
+
+Input
+Sveikas skaičius n (1 ≤ n ≤ 30).
+Output
+išveskite atsakymą.
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+
+long long int dfact(long long int n) {
+	
+    //if (n < 0 || n>30) { return 0; }
+	if (n == 0 || n == 1) { return 1; }
+	//if (n > 1 || n <= 30) 
+	else { return n * dfact(n - 2); }
+		
+	
+}
+int main()
+{
+	long long n;
+	ifstream listfile("13.txt");
+	if (listfile.fail()) { cout << "error"; }
+	listfile >> n;
+	listfile.close();
+	ofstream rezfile("13.out");
+	if (rezfile.fail()) { cout << "errorrez"; }
+    rezfile<<dfact(n);
+	rezfile.close();
+	return 0;
+}
+
+3.15 - Duota N x N dydžio matrica. Parašykite funkciją, kuri pasuktų matricą 90 laipsnių pagal laikrodžio rodyklę nurodytą kiekį kartų k.
+
+Input
+N < 101, K < 100000001
+
+#include<iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	ifstream listfile("15.txt");
+	if (listfile.fail()) { cout << "error"; }
+	long long n;
+	long long k;
+	int arr[101][101];
+	int arr1[101][101];
+	listfile >> n;
+	listfile >> k;
+
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				listfile >> arr[i][j];
+			}
+		}
+		listfile.close();
+		if (k > 4) {
+			while (k > 4) {
+				int a;
+				k = k - 4;
+				a = k;
+				if (a == 1) { a = 1; }
+				else if (a == 2) { a = 2; }
+				else if (a == 3) { a = 3; }
+				else if (a == 4) { a = 4; }
+			}
+		}
+				for (int p = 0; p < k; p++)
+			{
+				for (int i = 0; i < n; i++)
+				{
+					for (int j = 0; j < n; j++)
+					{
+						arr1[i][j] = arr[n - j - 1][i];
+					}
+				}
+
+				for (int i = 0; i < n; i++)
+				{
+					for (int j = 0; j < n; j++)
+					{
+						arr[i][j] = arr1[i][j];
+						arr1[i][j] = 0;
+					}
+				}
+
+			}
+		
+
+			ofstream rezfile("15");
+			if (rezfile.fail()) { cout << "errorrez"; }
+			for (int i = 0; i < n; i++)
+			{
+				for (int j = 0; j < n; j++)
+					rezfile << arr[i][j] << " ";
+
+				rezfile << "\n";
+			}
+			rezfile.close();
+		
+	return 0;
+}
+
+
+
+3.16 - Apskaičiuokite an panaudodami dinaminio programavimo principą.
+
+Input
+Skaičiai iš intervalo [1;9].
+Output
+Išveskite atsakymą.
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int power(int x, unsigned int y)
+{
+	int temp;
+	if (y == 0)
+		return 1;
+	temp = power(x, y / 2);
+	if (y % 2 == 0)
+		return temp*temp;
+	else
+		return x*temp*temp;
+}
+int main()
+{
+	int a;
+	unsigned int n;
+	cin >> a;
+	cin >> n;
+	cout<<power(a, n);
+
+    return 0;
+}
+
+3.17 - Fibonači sekoje pirmi du elementai yra 0 ir 1. Kiekvienas sekantis narys yra lygus dviejų prieš jį einančių narių sumai: F(0) = 0, F(1) = 1, F(n) = F(n − 1) + F(n − 2). Apskaičiuokite n-ąjį sekos narį.
+
+Input
+Skaičius iš intervalo [0;80].
+Output
+Išveskite atsakymą.
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+long long fib[81]; // = { 0 };
+long long fibo(int n)
+{
+	//fib[0] = 0;
+	fib[1] = 1;
+	fib[2] = 1;
+	if (fib[n] == 0)
+	{
+		for (int j = 3; j <= n; ++j)
+		{
+			if (fib[n] == 0)
+				fib[j] = fib[j - 1] + fib[j - 2];
+			else
+				continue;
+		}
+	}
+	return fib[n];
+	
+}
+
+int main() {
+	int n;
+	ifstream listfile("14.in");
+	if (listfile.fail()) { cout << "error"; }
+	listfile >> n;
+	listfile.close();
+	ofstream rez("14.txt");
+	rez << fibo(n);
+	rez.close();
+	return 0;
+	
+}
