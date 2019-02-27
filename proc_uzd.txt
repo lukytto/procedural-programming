@@ -1,0 +1,113 @@
+C. 3.2 --  Duomenu faile duota kvadratine matrica NxN. Apsk. vidurki elementu, kurie patenka i k-aji stulpeli ir yra auksciau salutines istrizaines.
+#include<iostream>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	ifstream listfile("in.txt");
+	if (listfile.fail()) { cout << "error"; }
+	int n, k, arr[11][11];
+	double counter = 0, sum = 0;
+	listfile >> n;
+	listfile >> k;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			listfile >> arr[i][j];
+		}
+	}
+	listfile.close();
+
+	ofstream rezfile("ou.txt");
+	if (rezfile.fail()) { cout << "errorrez"; }
+	if (n > 2 && n < 11)
+	{
+		for (int i = 0; i < n; i++) {
+			for (int j = k-1; j < k; j++) {
+				if (i + j < n - 1) {
+					sum = sum + arr[i][j];
+					counter++;
+				}
+			}
+		}
+		cout << fixed << setprecision(2) << sum / counter << endl;
+		cout << sum << endl;
+	}
+
+	if (counter != 0) {
+		rezfile << fixed << setprecision(2) << sum / counter;
+	}
+
+	else { rezfile << "NO"; }
+	rezfile.close();
+	return 0;
+}
+-
+-
+-
+B.2.2 -- Duota N ilgio skaiciu seka. Patikrinkite ar yra sekoje trys vienodi elementai.
+#include <iostream>
+using namespace std;
+int k, origVal = 0, newVal = 0, n, a, counter=0, arr[10];
+int main()
+{
+	cin >> n;
+	for (a = 0; a < n; a++) {
+		cin >> arr[a];
+	}
+
+	for (a = 0; a < n; a++) {
+		origVal = arr[a];
+
+		for (k = a + 1; k < n; k++) {
+			if (origVal == arr[k])
+			{
+				counter++;
+				//newVal = 1;
+			}
+		}
+	}
+
+	if (counter>=3)
+	{
+		cout << "TAIP" << endl;
+	}
+	else { cout << "NE" << endl; }
+	return 0;
+}
+-
+-
+-
+Duota kvadratine NxN matrica. Raskite maziausia matricos elementa kuris yra kairiau k-ojo stulpelio.
+#include <iostream>
+#include <iomanip>  
+
+using namespace std;
+int arr[10][10], n = 0, k = 0;
+int main()
+{
+
+	cin >> n >> k;
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < n; ++j) {
+			cin >> arr[i][j];
+		}
+	}
+	int min=10000001;
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < k-1; ++j) {
+			if (min > arr[i][j]) {
+				min = arr[i][j];
+			}
+		}
+	}
+	
+	if (min < 10000001) {
+		cout << min;
+	}
+	//else if (min>1000){ cout << "NO"; }
+	else { cout << "NO"; }
+
+	return 0;
+}

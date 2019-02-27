@@ -1,0 +1,579 @@
+2.2
+Duota skaièiø seka. Raskite visø neigiamø sekos elementø vidurká.
+iðvesti vidurká paliekant du skaièius po kablelio. Jei vidurkis neegzistuoja, iðvesti NO.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	int arr[10], a, n, counter = 0;
+	double sum = 0;
+
+	cin >> n;
+	
+			for (a = 0; a < n; a++){
+			cin >> arr[a];
+			}
+			for (a = 0; a < n; a++){
+				if (arr[a] < 0) {
+					counter++;
+					sum = sum + arr[a];
+				}
+			}
+		
+	if (counter != 0) {
+		cout << fixed << setprecision(2) << sum / counter;
+	}
+		
+	else { cout << "NO"; }
+	return 0;
+	}
+2.3
+Duota skaièiø seka. Raskite maþiausià lyginá sekos elementà.
+iðvesti atsakymà. Jei asakymas neegzistuoja, iðvesti No.
+#include <iostream>
+
+using namespace std;
+int main()
+{
+	int arr[10];
+	int b[10];
+	int n = 0;
+
+	cin >> n;
+	for (int a = 0; a < n; a++) {
+		
+		cin >> arr[a];
+	}
+
+	int j = 0;
+	for (int a = 0; a < n; a++)
+		if (arr[a] % 2 == 0) b[j++] = arr[a];
+	if (j == 0) cout << "No" << endl;
+	else {
+		int bmin = b[0];
+		for (int a = 0; a < j; a++)
+			if (b[a] < bmin) bmin = b[a];
+		cout << bmin << endl;
+	}
+	return 0;
+}
+
+2.4
+Duota skaièiø seka. Raskite didþiausio neigiamo elemento pozicijà.
+iðvesti atsakymà. Jei yra keli vienodi didþiausi neigiami elementai, didesniu laikomas tas kuris yra pirmesnis. Jei toks elementas neegzistuoja, iðvesti NERA.
+#include <iostream>
+
+using namespace std;
+
+
+int n, a, arr[10];
+int main()
+{
+	cin >> n;
+	for (int a = 0; a < n; a++) {
+		cin >> arr[a];
+	}
+	int Result = 0;
+	int index = 0;
+	for (int a = 0; a < n; a++)
+	{
+		if (arr[a] < 0 && (Result == 0 || arr[a] > Result))
+		{
+			Result = arr[a];
+			index = a + 1;
+		}
+	}
+
+	if (Result < 0) {
+		cout << index<<endl;
+	}
+	else { cout << "NERA"<<endl; }
+
+
+	return 0;
+}
+
+2.5
+Duota skaièiø seka. Patikrinkite ar visi sekos elementai yra skirtingi skaièiai.
+#include <iostream>
+using namespace std;
+int k, origVal = 0, newVal = 0, n, a, arr[10];
+int main()
+{
+	cin >> n;
+	for (a = 0; a < n; a++) {
+		cin >> arr[a];
+	}
+
+		for (a = 0; a < n; a++){
+				origVal = arr[a];
+
+				for (k = a + 1; k < n; k++){
+					if (origVal == arr[k])	
+						{newVal = 1;}	
+				}	
+		}
+	
+		if (newVal == 1)
+		{cout << "NE" << endl;}
+		else{cout << "TAIP" << endl;}
+		return 0;
+	
+}
+
+2.6
+Duotas dvimatis skaièiø masyvas. Raskite visø elementø vidurká.
+#include <iostream>
+#include <iomanip>  
+
+using namespace std;
+double arr[10][10], n, m, sum=0, average=0, i, j;
+int main()
+{
+
+cin>>n>>m;
+	for (int i = 0; i < n; ++i){
+	for (int j = 0; j < m; ++j){
+		cin>>arr[i][j];
+		 }
+		}
+
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < m; ++j) {
+		sum+=arr[i][j];
+		}
+		}
+		average=sum/(n*m);
+		cout<<fixed<<setprecision(2)<<average;
+
+    return 0;
+}
+
+2.7
+Duotas dvimatis skaièiø masyvas. Raskite didþiausià antros eilutës elementà.
+#include <iostream>
+#include <iomanip>  
+
+using namespace std;
+int arr[10][10], n, m;
+int main()
+{
+
+	cin >> n >> m;
+	if (n <= 1 || m <= 1) { cout << "No"<<endl; }
+	else{
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			cin >> arr[i][j];
+		}
+	}
+	int max = -9999999;
+	for (int k = 0; k < m; k++) {
+		if (arr[1][k] >= max) {
+			max = arr[1][k];
+		}
+	}
+	
+		cout << max << endl;
+	}
+
+	return 0;
+}
+
+2.8
+Duotas dvimatis skaièiø masyvas. Raskite deðiniau k-ojo stulpelio esanèiø elementø sumà.
+#include <iostream>
+#include <iomanip>  
+
+using namespace std;
+int arr[10][10], n = 0, m = 0, k=0;
+int main()
+{
+
+	cin >> n >> m>>k;
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < m; ++j) {
+			cin >> arr[i][j];
+		}
+	}
+	int sum = 0;
+	for (int i =0; i < n; ++i) {
+		for (int j = k; j < m; ++j) {
+			sum=sum+arr[i][j];
+					}
+	}
+	if(sum!=0){
+	cout<<sum;}
+	else{cout<<"NO";}
+	
+
+	return 0;
+}
+
+2.9
+Duotas dvimatis skaièiø masyvas. Apskaièiuokite elementø vidurká eilutës, kurioje yra didþiausias masyvo elementas.
+#include <iostream>
+#include <iomanip>  
+
+using namespace std;
+double arr[10][10], n = 0, m = 0;
+int main()
+{
+
+	cin >> n >> m;
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < m; ++j) {
+			cin >> arr[i][j];
+		}
+	}
+	double sum = 0;
+	double average = 0;
+	int index = 0;
+	double max = 0;
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < m; ++j) {
+			if (max == arr[i][j]) {
+				j++;
+			}
+			else if (max < arr[i][j]) {
+				max = arr[i][j];
+				index = i;
+			}
+			
+		}
+	}
+	for (int i = index; i <= index; ++i) {
+		for (int j = 0; j < m; ++j) {
+			sum = sum + arr[i][j];
+			average = sum / m;
+		}
+	}
+	//cout<<max<<endl;
+	//cout<<index<<endl;
+	//cout << sum << endl;
+
+	cout << fixed << setprecision(2) << average << endl;
+	return 0;
+}
+
+2.10
+Duotas dvimatis kvadratinis skaièiø masyvas. Apskaièiuokite sumà elementø, esanèiø þemiau pagrindinës ástriþainës.
+#include <iostream>
+#include <iomanip>  
+
+using namespace std;
+int arr[10][10], n;
+int main()
+{
+
+	cin >> n;
+	if (n <= 1) { cout << "No" << endl; }
+	else {
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				cin >> arr[i][j];
+			}
+		}
+		int sum = 0;
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				if (i > j) {
+					sum = sum + arr[i][j];
+				}
+			}
+		}
+
+		cout << sum<< endl;
+	}
+
+	return 0;
+}
+
+2.11
+Kvadratiniame masyve atvaizduokite deimantà.Deimanto kontûrams naudojamas simbolis "O", likusi erdvë uþpildoma simboliais "-".
+#include <iostream>
+#include <iomanip>  
+ 
+using namespace std;
+int arr[10][10], n;
+
+int main()
+{
+	cin >> n;
+
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				cin >> arr[i][j];
+			}
+		}
+		
+		for (int i = 0; i < n; i++) {
+			for (int j = n-1; j >= 0; j--) {
+				if (j == 0) cout << arr[j][i];
+				else cout << arr[j][i]<<" ";
+			}
+			cout << endl;
+
+		}
+	return 0;
+}
+
+2.12
+Duotas dvimatis kvadratinis skaièiø masyvas. Pasukite masyvà laikrodþio rodyklës kryptimi.
+#include <iostream>
+#include <iomanip>  
+ 
+using namespace std;
+int arr[10][10], n;
+
+int main()
+{
+	cin >> n;
+
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				cin >> arr[i][j];
+			}
+		}
+		
+		for (int i = 0; i < n; i++) {
+			for (int j = n-1; j >= 0; j--) {
+				if (j == 0) cout << arr[j][i];
+				else cout << arr[j][i]<<" ";
+			}
+			cout << endl;
+
+		}
+	return 0;
+}
+
+2.13
+Duotas dvimatis kvadratinis skaièiø masyvas. Raskite didþiausià elementà, kuris bûtø þemiau ðalutinës ástriþainës ir nepatenkantis á pagrindinæ ástriþainæ.
+#include <iostream>
+#include <iomanip>  
+
+using namespace std;
+int arr[10][10], n, max = -9999999;
+int main()
+{
+
+	cin >> n;
+	if (n > 2 && n < 11) 
+	 {
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				cin >> arr[i][j];
+			}
+		}
+	
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				if (i!=j &&j >= n - i) {
+					if (max < arr[i][j]) {
+						max = arr[i][j];
+					}
+				}
+			}
+		}
+
+		cout << max << endl;
+	}
+	else { cout << "Ne"; }
+
+	return 0;
+}
+
+2.14
+Duota skaièiø seka. Raskite didþiausià nesikartojantá skaièiø.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+	int arr[10];
+	int b[10];
+	int n = 0, kart = 0;
+	int max = -9999999;
+	cin >> n;
+	if (n == 1) {
+		cin >> arr[1];
+		cout << arr[1] << endl;;
+	}
+	else {
+		for (int i = 0; i < n; i++) {
+
+			cin >> arr[i];
+			b[i] = arr[i];
+		}
+
+
+		for (int i = 0; i < n; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if (arr[i] == arr[j]) {
+					b[i] = -9999999;
+					b[j] = -9999999;
+				}
+			}
+		}
+
+		for (int i = 0; i < n; i++) {
+			if (b[i] > max) {
+				max = b[i];
+			}
+		}
+		
+		for (int i = 0; i < n; i++) {
+
+			if (b[i] == -9999999) {
+				kart++;
+			}
+
+		}
+		if (kart == n) { cout << "NO" << endl; }
+		else { cout << max << endl; }
+	}
+	return 0;
+}
+
+2.16
+Duota skaièiø seka. Sekos narys vadinamas áþûliu, jeigu jis yra didesnis uþ savo kaimynus. Raskite maþiausià teigiamà áþûlø skaièø.
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a[10], b[10], i, n, k = 0;
+	cin >> n;
+	
+	for (i = 0; i<n; i++)
+	{
+		cin >> a[i];
+	}
+	
+	for (i = 0; i<n; i++)
+	{
+		if (i == 0 && a[i]>a[i + 1])
+		{
+			b[k] = a[i];
+			k++;
+		}
+		else if (i == (n - 1) && a[i]>a[i - 1])
+		{
+			b[k] = a[i];
+			k++;
+		}
+		else if (a[i]>a[i + 1] && a[i]>a[i - 1])
+		{
+			b[k] = a[i];
+			k++;
+		}
+		
+	}
+	int min = 9999999;
+	for (int i = 0; i < k; i++) {
+		if (b[i] <= min && b[i] > 0) {
+			min = b[i];
+
+		}
+
+	}
+	if (k == 0 || min == 9999999) cout << "NO" << endl;
+	else cout << min << endl;
+	return 0;
+
+}
+
+2.17
+Sveikieji skaièiai skirstomi á dvi "lyginumo" klases: lyginiai ir nelyginiai. Á sekà, kurios visi elementai yra vienodo lyginumo, Petriukas áterpë prieðingo lyginumo skaièiø. Kurios lyginumo klasës skaièius buvo áterptas á sekà?
+iðvesti Petriuko áterpto skaièiaus lyginumo klasë: LYGINIS arba NELYGINIS
+#include <iomanip>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	long long n, l;
+	long long arr[500];
+	l = 0;
+
+	cin >> n;
+	if (n > 500) { n = 499; }
+	for (int i = 1; i <= n; i++) {
+		cin >> arr[i];
+	}
+
+	for (int i = 1; i <= 3; i++) {
+		if (arr[i] % 2 == 0) l++;
+	}
+	if (l > 1) cout << "NELYGINIS" << endl;
+	else cout << "LYGINIS" << endl;
+	return 0;
+}
+
+2.18
+Per matematikos pamokà Petriukas ádëmiai stebëjo, kaip reikia spræsti ax2?+?bx?+?c?=?0 pavidalo lygtis. Mokytoja, norëdama patikrinti Petriuko þinias, namø darbams uþdavë iðspræsti n lygèiø prie ávairiausiø a,b,c reikðmiø. Padëkite Petriukui nustatyti, po kiek skirtingø realiø sprendiniø turi kiekviena lygtis.
+Lygèiø skaièius n ir sveiki koeficientai a,?b,?c (1???n???100,????106???a,?b,?c???106).
+iðvesti kiekvienos lygties skirtingø realiø sprendiniø skaièiø spausdinant skirtingose eilutëse. Jei lygtis turi begalo daug sprendiniø, iðveskite -1.
+#include <iomanip>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+	int n;
+	double long a[101],b[101],c[101];
+	cin >> n;
+	for (int i = 1; i <= n; i++) {
+		cin >> a[i] >> b[i] >> c[i];
+	}
+	for (int i = 1; i <= n; i++) {
+		double long d;
+		d = b[i] * b[i] - 4 * a[i] * c[i];
+		if (a[i] == 0 && b[i] == 0 && c[i] == 0)cout << -1 << endl;
+		else if (a[i] == 0 && b[i] == 0) cout << 0 << endl;
+		else if (a[i] == 0) cout << 1 << endl;
+		else if (d == 0) cout << 1 << endl;
+		else if (d > 0) cout << 2 << endl;
+		else if (d < 0) cout << 0 << endl;
+		
+
+	}
+    return 0;
+}
+
+2.20
+Raskite skaièiaus a^b skaitmenø kieká.
+iðvesti skaitmenø kieká.
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	double long  a, b;
+	long long c;
+	int d;
+	d = 0;
+
+	cin >> a >> b;
+	c = a;
+	if (a > 1000000) {
+		cout << fixed << setprecision(0) << abs(log10(a)*b + 1) << endl;
+	}
+
+	else {
+
+		c = pow(a, b);
+		while (c > 0) {
+			c = c / 10;
+			d++;
+		}
+		cout << d << endl;
+	}
+	return 0;
+}

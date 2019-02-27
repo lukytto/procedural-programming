@@ -1,0 +1,89 @@
+﻿A - Duota kvadratinė NxN matrica. Raskite mažiausią matricos elementą, kuris yra k-ojoje eilutėje.
+
+Input
+Natūralūs skaičiai N, k ir matricos elementai Aij (1 ≤ k ≤ N ≤ 10,  − 106 ≤ Aij ≤ 106).
+
+#include <iostream>
+#include <iomanip>  
+
+using namespace std;
+int arr[10][10], n = 0, k;
+int main()
+{
+
+	cin >> n >> k;
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < n; ++j) {
+			cin >> arr[i][j];
+		}
+	}
+
+	int min = 10000001;
+	for (int i = k-1; i < k; ++i) {
+		for (int j = 0; j < n; ++j) {
+			if (min > arr[i][j]) {
+				min = arr[i][j];
+			}
+		}
+	}
+
+	if (min < 10000001) {
+		cout << min;
+	}
+	//else if (min>1000){ cout << "NO"; }
+	//else { cout << "NO"; }
+
+	return 0;
+}
+
+C - Duomenų faile duota kvadratinė NxN matrica. Apskaičiuokite vidurkį elementų, kurie patenka į k-ąją eilutę ir nepatenka į šalutinę bei pagrindinę įstrižaines.
+
+Input
+Natūralūs skaičiai N, k ir matricos elementai Aij (1 ≤ k ≤ N ≤ 10,  − 106 ≤ Aij ≤ 106).
+Output
+Išvesti atsakymą į failą paliekant du skaitmenis po kablelio. Jei atsakymas neegzistuoja, išvesti NO.
+
+#include<iostream>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	ifstream listfile("in.txt");
+	if (listfile.fail()) { cout << "error"; }
+	int n, k, arr[11][11];
+	double counter = 0, sum = 0;
+	listfile >> n;
+	listfile >> k;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			listfile >> arr[i][j];
+		}
+	}
+	listfile.close();
+
+	ofstream rezfile("ou.txt");
+	if (rezfile.fail()) { cout << "errorrez"; }
+	if (n > 2 && n < 11)
+	{
+		for (int i = k-1; i < k; i++) {
+			for (int j = 0; j < n; j++) {
+				if (i!=j && i + j != n - 1) {
+					sum = sum + arr[i][j];
+					counter++;
+				}
+			}
+		}
+		//cout << fixed << setprecision(2) << sum / counter << endl;
+		//cout << sum << endl;
+	}
+
+	if (counter != 0) {
+		rezfile << fixed << setprecision(2) << sum / counter;
+	}
+
+	else { rezfile << "NO"; }
+	rezfile.close();
+	return 0;
+}
